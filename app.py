@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 from flask_jwt_extended import JWTManager
 
-from postly.config import Config
-from postly.database.db import db
-from postly.auth.routes import auth_bp
-from postly.posts.routes import posts_bp
+from config import Config
+from database.db import db
+from auth.routes import auth_bp
+from posts.routes import posts_bp
 from postly.models.user import User
 from postly.models.post import Post
 
@@ -51,4 +51,5 @@ def posts_ui():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
