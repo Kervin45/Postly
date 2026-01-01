@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+<div class="container">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Log in to your Postly account</p>
+    
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="password" id="password" placeholder="Password">
+    
+    <button id="login-btn">Login</button>
+    
+    <p class="link-text">
+        Don't have an account? <a href="/register-ui">Sign up</a>
+    </p>
+    <div id="msg"></div>
+</div>
+
+<script>
+    document.getElementById("login-btn").addEventListener("click", async () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const res = await fetch("/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+            localStorage.setItem("token", data.access_token);
+            window.location.href = "/posts-ui";
+        } else {
+            document.getElementById("msg").innerText = data.error || "Login failed";
+            document.getElementById("msg").style.color = "red";
+        }
+    });
+</script>
+</body>
+</html>

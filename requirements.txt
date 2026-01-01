@@ -1,0 +1,7 @@
+# Project dependencies
+flask
+flask-jwt-extended
+flask-sqlalchemy
+werkzeug
+python-dotenv
+gunicorn
