@@ -3,7 +3,7 @@ from flask_jwt_extended import create_access_token
 from werkzeug.security import check_password_hash, generate_password_hash
 # Package-absolute imports
 from database.db import db
-from postly.models.user import User
+from models.user import User
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 

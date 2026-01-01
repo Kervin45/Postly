@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from database.db import db
-from postly.models.post import Post 
+from models.post import Post 
 
 posts_bp = Blueprint("posts", __name__, url_prefix="/posts") 
 

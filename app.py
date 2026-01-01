@@ -5,8 +5,8 @@ from config import Config
 from database.db import db
 from auth.routes import auth_bp
 from posts.routes import posts_bp
-from postly.models.user import User
-from postly.models.post import Post
+from models.user import User
+from models.post import Post
 
 
 def create_app():
