@@ -3,12 +3,50 @@
 <head>
     <title>Postly - Feed</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .demo-banner {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            text-align: left;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <h2>Postly Feed</h2>
             <button id="logout-btn" style="width: auto; padding: 5px 15px; background: #64748b;">Logout</button>
+        </div>
+
+        <div class="demo-banner">
+            <strong>⚠ Demo Warning:</strong> This is a demo project deployed for learning and portfolio purposes. Please delete your data before closing the app. Data may be reset anytime.
         </div>
 
         <hr>
@@ -22,6 +60,15 @@
         
         <h2>Recent Posts</h2>
         <div id="feed"></div>
+
+        <div class="footer">
+            <p>👋 Built by <strong>Kervin Kittuselvan</strong> — an IT engineering student</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kervin-kittuselvan-6b2927256" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Kervin45" target="_blank">GitHub</a>
+                <a href="https://www.instagram.com/its.me_kervin?igsh=MTU2Mm0xN283ZHM1Yw==" target="_blank">Instagram</a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -76,8 +123,8 @@
                         <p id="text-${p.id}">${p.content}</p>
                         <small>Posted by User #${p.user_id}</small>
                         <div style="margin-top: 12px; display: flex; gap: 10px;">
-                            <button onclick="editPost(${p.id}, '${p.content}')" style="width: auto; padding: 5px 12px; background: #6366f1; font-size: 12px;">Edit</button>
-                            <button onclick="deletePost(${p.id})" style="width: auto; padding: 5px 12px; background: #ef4444; font-size: 12px;">Delete</button>
+                            <button onclick="editPost(${p.id}, '${p.content.replace(/'/g, "\\'")}')" style="width: auto; padding: 5px 12px; background: #6366f1; font-size: 12px; color: white; border: none; border-radius: 4px; cursor: pointer;">Edit</button>
+                            <button onclick="deletePost(${p.id})" style="width: auto; padding: 5px 12px; background: #ef4444; font-size: 12px; color: white; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
                         </div>
                     `;
                     feed.appendChild(article);
