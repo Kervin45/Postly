@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from "../config";
+
 
 const styles = {
     container: { 
@@ -255,9 +257,10 @@ function Feed() {
         navigate('/');
     };
 
-    if (!token) {
-        return null; // Will redirect in useEffect
-    }
+if (!token) {
+    return null; // Will redirect in useEffect
+}
+
 
     return (
         <div style={styles.container}>

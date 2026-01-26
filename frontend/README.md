@@ -1,16 +1,66 @@
-# React + Vite
+📌 Version History
+🔹 Postly v2.0 (Current)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Status: ✅ Live
+Stack: Flask (Backend) + React (Frontend)
 
-Currently, two official plugins are available:
+Highlights:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React-based modern frontend (Vite + React Router)
 
-## React Compiler
+JWT authentication with protected routes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Full CRUD operations (Create, Read, Update, Delete posts)
 
-## Expanding the ESLint configuration
+Clean separation of frontend & backend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+UTC timestamps (industry standard)
+
+Improved UX, error handling, and state management
+
+Tech:
+
+Backend: Flask, SQLAlchemy, Flask-JWT-Extended
+
+Frontend: React, Vite, Axios
+
+Database: SQLite (upgrade-ready)
+
+🔖 Git Tag: v2.0
+
+🔹 Postly v1.0 (Archived)
+
+Status: 🗂 Archived (Demo-only, no longer deployed)
+Stack: Flask + Server-side templates (HTML/CSS)
+
+Highlights:
+
+JWT-based authentication
+
+Full CRUD functionality
+
+Monolithic Flask app
+
+Proof-of-concept social posting platform
+
+🔖 Git Tag: v1.0
+
+⚠️ Note: v1.0 is preserved for learning and version comparison purposes.
+Live demo has been removed intentionally.
+
+🚀 Roadmap
+
+v3.0: User profiles, likes, pagination
+
+v4.0: Comments, search, PostgreSQL
+
+v5.0: Scalable deployment, role-based access
+
+🧪 Demo Warning
+
+This project is built for learning and demonstration purposes only.
+Do not use real emails or sensitive data.
+
+📎 Live Demo
+
+👉 Postly v2.0: (Render URL here)

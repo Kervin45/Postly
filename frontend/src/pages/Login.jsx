@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from "../config";
 
 const styles = {
     container: { 
@@ -100,12 +101,12 @@ function Login() {
         } catch (err) {
             console.error('Login error:', err);
             setError('Server error. Please try again.');
-        } finally {
-            setLoading(false);
-        }
-    };
+    } finally {
+        setLoading(false);
+    }
+};
 
-    return (
+return (
         <div style={styles.container}>
             <form onSubmit={handleLogin} style={styles.card}>
                 <h2 style={styles.title}>Welcome Back</h2>
