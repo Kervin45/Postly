@@ -412,7 +412,7 @@ function Feed() {
       {/* Personal Links Footer */}
       <div style={styles.footer}>
         <p style={styles.footerText}>
-          👋 Built by <span style={styles.highlightName}>Kervin Kittuselvan</span> — an IT engineering student
+           Built by <span style={styles.highlightName}>Kervin Kittuselvan</span> — an IT engineering student
         </p>
         <div style={styles.socialLinks}>
           <a 
