@@ -31,22 +31,22 @@ def create_app():
 
 app = create_app()
 
-# UI routes
-@app.route("/")
-def index():
-    return render_template("index.html")
+# # UI routes
+# @app.route("/")
+# def index():
+#     return render_template("index.html")
 
-@app.route("/login-ui")
-def login_ui():
-    return render_template("login.html")
+# @app.route("/login-ui")
+# def login_ui():
+#     return render_template("login.html")
 
-@app.route("/register-ui")
-def register_ui():
-    return render_template("register.html")
+# @app.route("/register-ui")
+# def register_ui():
+#     return render_template("register.html")
 
-@app.route("/posts-ui")
-def posts_ui():
-    return render_template("posts.html")
+# @app.route("/posts-ui")
+# def posts_ui():
+#     return render_template("posts.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port=5000)
