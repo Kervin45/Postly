@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-from flask import Flask, render_template
+from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from config import Config
@@ -11,37 +10,26 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-CORS(
-    app,
-    resources={r"/*": {"origins": [
-        "https://postly-1-xzjb.onrender.com",
-        "http://localhost:5173"
-    ]}},
-    supports_credentials=True
-)
+    # 🔥 SIMPLE, CORRECT CORS
+    CORS(
+        app,
+        resources={r"/*": {"origins": "*"}},
+        supports_credentials=False
+    )
 
-    # Initialize extensions
     db.init_app(app)
     JWTManager(app)
-    
-    # Register blueprints
+
     app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(posts_bp, url_prefix="/posts")
-    
-    # Create database tables
+
     with app.app_context():
         db.create_all()
         print("Database and tables created!")
-    
+
     return app
 
 app = create_app()
 
-@app.after_request
-def after_request(response):
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    response.headers.add("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
-    return response
-
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run()
