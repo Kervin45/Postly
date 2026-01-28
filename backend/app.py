@@ -10,9 +10,16 @@ from posts.routes import posts_bp
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    
-    # Enable CORS for all routes
-    CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}})
+
+CORS(
+    app,
+    resources={r"/*": {"origins": [
+        "https://postly-1-xzjb.onrender.com",
+        "http://localhost:5173"
+    ]}},
+    supports_credentials=True
+)
+
     
     # Initialize extensions
     db.init_app(app)
