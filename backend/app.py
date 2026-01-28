@@ -20,7 +20,6 @@ CORS(
     supports_credentials=True
 )
 
-    
     # Initialize extensions
     db.init_app(app)
     JWTManager(app)
@@ -38,22 +37,11 @@ CORS(
 
 app = create_app()
 
-# # UI routes
-# @app.route("/")
-# def index():
-#     return render_template("index.html")
-
-# @app.route("/login-ui")
-# def login_ui():
-#     return render_template("login.html")
-
-# @app.route("/register-ui")
-# def register_ui():
-#     return render_template("register.html")
-
-# @app.route("/posts-ui")
-# def posts_ui():
-#     return render_template("posts.html")
+@app.after_request
+def after_request(response):
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response.headers.add("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
+    return response
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port=5000)
