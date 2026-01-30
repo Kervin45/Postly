@@ -37,13 +37,15 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         
+        # ✅ ADDED: Create token for immediate login after registration
+        access_token = create_access_token(identity=str(new_user.id))
+        
         return jsonify({
             "message": "User created successfully",
-            "user": {
-                "id": new_user.id,
-                "username": new_user.username,
-                "email": new_user.email
-            }
+            "token": access_token,  # ✅ ADDED
+            "userId": new_user.id,
+            "username": new_user.username,
+            "email": new_user.email
         }), 201
         
     except Exception as e:
