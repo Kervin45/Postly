@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE } from "../config";
 
-
 function Register() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -35,12 +34,14 @@ function Register() {
     <form onSubmit={handleRegister}>
       <input
         placeholder="Username"
+        required
         onChange={(e) =>
           setFormData({ ...formData, username: e.target.value })
         }
       />
       <input
         placeholder="Email"
+        required
         onChange={(e) =>
           setFormData({ ...formData, email: e.target.value })
         }
@@ -48,6 +49,7 @@ function Register() {
       <input
         type="password"
         placeholder="Password"
+        required
         onChange={(e) =>
           setFormData({ ...formData, password: e.target.value })
         }
