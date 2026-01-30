@@ -5,6 +5,7 @@ from config import Config
 from database.db import db
 from auth.routes import auth_bp
 from posts.routes import posts_bp
+from models.user import User  # 🔥 ADD THIS IMPORT
 
 def create_app():
     app = Flask(__name__)
@@ -22,13 +23,26 @@ def create_app():
         db.create_all()
         print("Database and tables created!")
 
+    # 🔥 ADD DEBUG ROUTE HERE (proper indentation)
     @app.route("/debug/users")
-def debug_users():
-    return {"count": User.query.count()}
+    def debug_users():
+        users_count = User.query.count()
+        users = User.query.all()
+        return {
+            "count": users_count,
+            "users": [
+                {
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email
+                }
+                for user in users
+            ]
+        }
 
     return app
 
 app = create_app()
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host="127.0.0.1", port=5000)
