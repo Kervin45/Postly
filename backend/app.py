@@ -22,6 +22,10 @@ def create_app():
         db.create_all()
         print("Database and tables created!")
 
+    @app.route("/debug/users")
+def debug_users():
+    return {"count": User.query.count()}
+
     return app
 
 app = create_app()
