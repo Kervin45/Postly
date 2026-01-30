@@ -141,4 +141,11 @@ function Login() {
                     onClick={() => navigate('/register')} 
                     style={styles.link}
                 >
-                    Don't
+                    Don't have an account? Register here
+                </p>
+            </form>
+        </div>
+    );
+}
+
+export default Login;
