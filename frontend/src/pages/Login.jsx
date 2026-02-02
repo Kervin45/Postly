@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from '../config'; // ✅ ADD THIS IMPORT
 
 const styles = {
     container: { 
@@ -66,14 +67,14 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // ✅ THE LOGIN FUNCTION
     const handleLogin = async (e) => {
         e.preventDefault();
         setError("");
         setLoading(true);
 
         try {
-            const res = await fetch('http://127.0.0.1:5000/auth/login', {
+            // ✅ CHANGED: Use API_BASE instead of hardcoded URL
+            const res = await fetch(`${API_BASE}/auth/login`, {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",
@@ -85,7 +86,6 @@ function Login() {
             const data = await res.json();
 
             if (res.ok) {
-                // ✅ Handle both possible response formats
                 localStorage.setItem("token", data.token || data.access_token);
                 localStorage.setItem("userId", data.userId || data.user_id);
                 localStorage.setItem("username", data.username);
